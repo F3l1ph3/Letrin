@@ -1,0 +1,125 @@
+@media screen and (max-width: 700px) {
+    
+
+    .tela1{
+        width: 330px;
+    }
+    .tela2{
+        width: 90%;
+    }
+    .teclado{
+        width: 95%;
+        height: 30%;
+    }
+    canvas{
+        width: 95%;
+        top: 20%;
+    }
+    .fileira{
+        height:25%;
+        top: 7.5%;
+    }
+    .fileira button{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    .teclado{
+        top: 60%;
+    }
+    .fileira button{
+        position: relative;
+        font-size: 15px;
+        height: 70%;
+    }
+    .life-bar{
+        display: flex;
+        width: auto;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 20px;
+    }
+    .btoFecharTela2 {
+        width: 20px;
+        height: 20px;
+        margin: 10px 10px;
+        right: 0;
+    }
+    
+    .btoFecharTela2 i{
+        font-size: 30px;
+        top: -5px;
+        left: -5px;
+    }
+    canvas{
+        top: 22%;
+    }
+
+    .boxBordaAnimadaPopup{
+        width: 95%;
+        
+    }
+    .tela3 button{
+        width: 40%;
+        
+    }
+    .telaVitoria{
+        
+        width: 97%;
+       
+    }
+    .telaDerrota{
+        
+        width: 97%;
+       
+    }
+    .textoVitoria{
+        top: 55%;
+    }
+    .textoDerrota{
+        top: 55%;
+    }
+    .bto:hover{
+        box-shadow: none;
+        transform: scale(none);
+    }
+    .bto:active{
+        transform: scale(none);
+    }
+
+    .telaAvisoBorda{
+
+        width: 95%;
+        
+    }
+    .erro1{
+        width: 97%;
+    }
+    .erro2{
+        width: 97%;
+    }
+    .erro1 p{
+        width: 98%;
+        
+    }
+    .erro2 p{
+        width: 98%;
+        
+    }
+
+    .devBox{
+        
+        width: 340px;
+        height: 40px;
+        top: 30px;
+        font-size: 15px;
+    
+    }
+
+
+
+
+}
