@@ -1,0 +1,854 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Righteous&display=swap');
+:root{
+    --titulo-texto      : #e0e0eb;
+    --botao             : #ff6a2a;
+    --botao-texto       : #e0e0eb;
+    --background        : #090911;
+    --tela1             : #1a1a29;
+    --tela1-contorno    : #0f0f1b;
+    --icones            : #373758;
+    --icones-hover      : #ff6a2a;
+    --rodape            : #373758;
+    --textarea          : #07070fc2;
+    --textfont          : #ff793f;
+    --tela1-border      : #ff5a13;
+    --life              : #ff5252;
+    --certo             : #218c74;
+    --errado            : #b33939;
+    --certo-fundo       : #33d9b2;
+    --errado-fundo      : #ff5252;
+    --fundo-tranparente : #07070f6e;
+    --gold              : #ffa72c;
+    --dark-gold         : #e49423;
+    --skull             : #030307;
+    --skull-shadow      : #e0e0eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+}
+
+/* Titulos */
+
+.tit{
+    text-align: center;
+    color: var(--titulo-texto);
+    font-family: 'Righteous', cursive;
+}
+
+h1{
+ font-size: 40px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+.titulo1{
+    position: relative;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 10px;
+}
+
+
+.titulo2{
+    position: relative;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 10px;
+}
+
+.titulo3{
+    position: relative;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 10px;
+}
+
+/* Botoes */
+
+.bto{
+    position: relative;
+    border: none;
+    background-color: var(--botao);
+    font-family: 'Righteous', cursive;
+    color: var(--botao-texto);
+    font-size: larger;
+}
+
+#btoIniciar{
+    font-size: 25px;
+    width: 50%;
+    left: 25%;
+    height: 50px;
+    border-radius: .5em;
+}
+
+#btoAdicionar{
+    width: 35%;
+    left: 32.5%;
+    height: 40px;
+    padding: 8px;
+    border-radius: .5em;
+    margin-top: 5px;
+
+}
+
+#btoRemover{
+    width: 35%;
+    left: 32.5%;
+    height: 40px;
+    padding: 8px;
+    border-radius: .5em;
+    margin-top: 5px;
+}
+
+.bto:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--botao);
+    transform: scale(1.1);
+}
+
+.bto:active{
+    transform: scale(1);
+}
+
+                /* Tela 1 */
+.borda-fundo::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 120%;
+    left: 25%;
+    top: -10%;
+    background-color: var(--tela1-border);
+    animation: border 3s linear infinite;
+}
+
+.borda-fundo::after{
+    content: '';
+    position: absolute;
+    background-color: var(--tela1);
+    inset: 5px;
+    border-radius: .5em;
+}
+
+@keyframes border{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.tela1{
+    background-color: var(--tela1-contorno);
+    position: absolute ;
+    display: block;
+    width: 360px;
+    height: 550px;
+    top: 0;
+    margin-left: 50%;
+    margin-top: 50px;
+    transform: translate(-50%, 0);
+    border-radius: .5em;
+    backdrop-filter: blur(3px);
+    overflow: hidden;
+}
+
+                /* Tela 2 */
+.tela2{
+    display: none;
+    position: absolute;
+    width: 600px;
+    height: 450px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 0;
+    margin-top: 95px;
+    background-color: var(--icones);
+    border-radius: .5em;
+}
+
+/* BTO Fechar */
+.btoFecharTela2 {
+    position: absolute;
+    background-color: var(--botao-texto);
+    width: 25px;
+    height: 30px;
+    margin: 30px 30px;
+    right: 0;
+}
+
+.btoFecharTela2 i{
+    position: absolute;
+    font-size: 40px;
+    color: var(--botao);
+    top: -5px;
+    left: -5px;
+}
+.btoFecharTela2 i:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+.btoFecharTela2 i:active{
+    transform: scale(1);
+}
+
+
+/* Teclado */
+.teclado{
+    position: absolute;
+    background-color: var(--background);
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 550px;
+    top: 63%;
+    border-radius: .5em;
+}
+.fileira{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0;
+    text-align: center;
+    
+}
+.fileira button{
+    position: relative;
+    width: 7%;
+    height: 100%;
+    background-color: var(--botao);
+    border: none;
+    border-radius: .4em;
+    cursor: pointer;
+    font-family: 'Righteous', cursive;
+    color: var(--botao-texto);
+    font-size: 20px;
+    margin: 0 1px;
+}
+
+.fileira button:hover{
+    transform: scale(1.2);
+}
+
+.fileira button:active{
+    transform: scale(1);
+}
+
+.fileira .certo{
+    background-color: var(--certo);
+}
+
+.fileira .errado{
+    background-color: var(--errado);
+}
+
+/* Barra de Vida*/
+.life-bar{
+    position: absolute;
+    font-size: 30px;
+    color: var(--life);
+    left: 30px;
+    top: 20px;
+    width: 300px;
+    height: 50px;
+    text-align: start;
+    display: flex;
+}
+
+.life-bar i{
+    display: block;
+    margin: 10px 8px;
+    text-shadow: 0 0 10px var(--life);
+    animation: life-bar 4s infinite linear;
+    animation-delay: calc(0.5s * var(--i));
+}
+
+
+@keyframes life-bar{
+    0%{
+        transform: scale(1);
+    }
+    20%{
+        transform: scale(1.4);
+    }
+    40%{
+        transform: scale(1);
+    }
+    100%{
+        
+    }
+
+}
+
+/* Canvas */
+canvas{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: .5em;
+    background-color: var(--background);
+}
+
+/* Caixas de texto */
+textarea{
+    background-color: var(--textarea);
+    color: var(--textfont);
+    resize: none;
+    border-radius: .5em;
+    font-size: larger;
+    text-align: center;
+    border: none;
+    backdrop-filter: blur(3px);
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    outline: none;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    height: 125px;
+}
+
+.adicionar{
+    height: 90px;
+}
+
+#adiciona{
+    position: relative;
+    width: 200px;
+    height: 25px;
+    padding: 8px;
+    
+}
+
+#exibe{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    
+    padding: 2%;
+    text-align: center;
+    overflow: auto;
+}
+
+/* Bg - icons */
+.icons-bg{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    white-space: nowrap;
+    font-size: 8vh;
+    overflow: hidden;
+}
+
+.row{
+    margin: 15px 0px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    
+}
+.row i{  
+    color: var(--icones);
+    transition: 2s;
+    padding: 0 10px;
+    user-select: none;
+    cursor: default;
+}
+
+.row i:hover{
+    transition: 0s;
+    color: var(--icones-hover);
+    text-shadow: 0 0 50px var(--icones-hover);
+}
+
+/* Animação - Background */
+section .row div{
+    animation: animate 80s linear infinite;
+    animation-delay: -80s;
+}
+section .row div:nth-child(2){
+    animation: animate2 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate2{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+
+section .row:nth-child(odd) div{
+    animation: animate3 80s linear infinite;
+    animation-delay: -80s;
+}
+section .row:nth-child(odd) div:nth-child(2){
+    animation: animate4 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate3{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animate4{
+    0%{
+        transform: translateX(-200%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+
+
+/* Animações adicionais */
+.anima-errado i{
+    animation: errado 1s linear;
+}
+
+.anima-errado2 i{
+    animation: errado2 1s linear;
+}
+@keyframes errado{
+    0%{
+
+    }
+    50%{
+        color: var(--errado-fundo);
+        text-shadow: 0 0 50px var(--errado-fundo);
+    }
+    100%{
+
+    }
+}
+
+@keyframes errado2{
+    0%{
+
+    }
+    50%{
+        color: var(--errado-fundo);
+        text-shadow: 0 0 50px var(--errado-fundo);
+    }
+    100%{
+
+    }
+}
+
+.anima-certo i{
+    animation: certo 1s linear;
+}
+
+.anima-certo2 i{
+    animation: certo2 1s linear;
+}
+
+@keyframes certo{
+    0%{
+
+    }
+    50%{
+        color: var(--certo-fundo);
+        text-shadow: 0 0 50px var(--certo-fundo);
+    }
+    100%{
+
+    }
+}
+
+@keyframes certo2{
+    0%{
+
+    }
+    50%{
+        color: var(--certo-fundo);
+        text-shadow: 0 0 50px var(--certo-fundo);
+    }
+    100%{
+
+    }
+}
+
+                /* Tela 3*/
+
+.tela3{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--fundo-tranparente);
+    backdrop-filter: blur(3px);
+    text-align: center;
+}
+
+.boxBordaAnimadaPopup{
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: var(--icones);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: .5em;
+}
+
+.bordaAnimadaPopup::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 200%;
+    left: 25%;
+    top: -50%;
+    background-color: var(--tela1-border);
+    animation: border 4s linear infinite;
+    
+}
+
+.tela3 button{
+    position: relative;
+    width: 200px;
+    height: 45px;
+    background-color: var(--botao);
+    border-radius: .3em;
+    border: none;
+    font-family: 'Righteous', cursive;
+    color: var(--botao-texto);
+    font-size: 20px;
+    top: 220px;
+    margin: 10px;
+}
+
+.tela3 button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--botao);
+    transform: scale(1.1);
+}
+
+.tela3 button:active{
+    transform: scale(1);
+}
+
+/* Vitoria */
+.telaVitoria{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 290px;
+    background-color: var(--background);
+    transform: translate(-50%, -50%);
+    border-radius: .5em;
+    text-align: center;
+}
+
+.iconVitoria{
+    position: absolute;
+    font-size: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--background);
+    top: 25px;
+}
+
+.iconVitoria i{
+    color: var(--dark-gold);
+    text-shadow: 0 0 80px var(--gold);
+}
+
+.textoVitoria{
+    position: absolute;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+    color: var(--titulo-texto);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Derrota */
+.telaDerrota{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 290px;
+    background-color: var(--background);
+    transform: translate(-50%, -50%);
+    border-radius: .5em;
+    text-align: center;
+}
+
+.iconDerrota{
+    position: absolute;
+    font-size: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--background);
+    top: 25px;
+}
+
+.iconDerrota i{
+    color: var(--skull);
+    text-shadow: 0 0 40px var(--skull-shadow);
+}
+
+.textoDerrota{
+    position: absolute;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+    color: var(--titulo-texto);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Tela 4 - Avisos */
+.tela4{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--fundo-tranparente);
+    backdrop-filter: blur(3px);
+    text-align: center;
+}
+
+.telaAvisoBorda{
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: var(--icones);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: .5em;
+
+}
+
+.telaAviso::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 200%;
+    left: 25%;
+    top: -50%;
+    background-color: var(--errado-fundo);
+    animation: border 4s linear infinite;
+
+}
+
+.btnCloseAvisos {
+    position: absolute;
+    background-color: var(--botao-texto);
+    width: 25px;
+    height: 30px;
+    margin: 20px 20px;
+    right: 0;
+}
+
+.btnCloseAvisos i{
+    position: absolute;
+    font-size: 40px;
+    color: var(--errado-fundo);
+    top: -5px;
+    left: -5px;
+}
+
+.btnCloseAvisos i:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+
+.btnCloseAvisos i:active{
+    transform: scale(1);
+}
+
+/* Erro 1 - 12 letras e sem espaço */ 
+.erro1{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 290px;
+    background-color: var(--background);
+    transform: translate(-50%, -50%);
+    border-radius: .5em;
+    text-align: center;
+}
+
+.erro1 i{
+    position: absolute;
+    font-size: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--errado-fundo);
+    top: 15%;
+    text-shadow: 0 0 40px var(--errado-fundo);
+}
+
+.erro1 p{
+    width: 400px;
+    text-align: center;
+    position: absolute;
+    font-size: 25px;
+    font-family: 'Righteous', cursive;
+    color: var(--titulo-texto);
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
+
+/* Erro2 - Palavra já existe */
+.erro2{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 290px;
+    background-color: var(--background);
+    transform: translate(-50%, -50%);
+    border-radius: .5em;
+    text-align: center;
+}
+
+.erro2 i{
+    position: absolute;
+    font-size: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--botao-texto);
+    top: 18%;
+    text-shadow: 0 0 40px var(--botao-texto);
+}
+
+.erro2 p{
+    width: 400px;
+    text-align: center;
+    position: absolute;
+    font-size: 25px;
+    font-family: 'Righteous', cursive;
+    color: var(--titulo-texto);
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
+
+/* Rodape */
+.rodape{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: var(--rodape);
+    margin: auto;
+}
+
+.devBox{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: var(--background);
+    color: var(--icones);
+    width: 400px;
+    height: 40px;
+    top: 30px;
+    font-size: 18px;
+    border-radius: .2em;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+
+}
+.devBox p{
+    position: relative;
+    top: 49%;
+    transform: translate(0, -50%);
+}
+
+strong{
+    color: var(--botao);
+}
+
+.contatoBox{
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: var(--background);
+    color: var(--icones);
+    width: 70px;
+    height: 35px;
+    font-size: 30px;
+    border-radius: .2em;
+    text-align: center;
+}
+
+.contatoBox i{
+    position: relative;
+    top: 49%;
+    transform: translate(0, -50%);
+}
+
+.contatoBox i:hover{
+    color: var(--botao);
+}
+.contatoBox a{
+    color: var(--icones);
+}
